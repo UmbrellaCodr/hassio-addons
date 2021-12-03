@@ -1,0 +1,46 @@
+version: 0.0.3
+slug: duckdnsacme
+name: Duck DNS +acme.sh
+description: Free Dynamic DNS (DynDNS or DDNS) service with Let's Encrypt support
+url: https://github.com/UmbrellaCodr/hassio-addons/tree/main/duckdnsacme
+arch:
+  - armhf
+  - armv7
+  - aarch64
+  - amd64
+  - i386
+map:
+  - ssl:rw
+options:
+  domains:
+    - null
+  lets_encrypt:
+    accept_terms: false
+    account: null
+    algo: ec-384
+    certfile: fullchain.pem
+    cert_domains:
+      - null
+    challenge_alias: null
+    keyfile: privkey.pem
+  seconds: 300
+  token: null
+schema:
+  domains:
+    - match(.+\.duckdns\.org)
+  ipv4: str?
+  ipv6: str?
+  lets_encrypt:
+    accept_terms: bool
+    account: str?
+    algo: list(2048|3072|4096|8192|ec-256|ec-384|ec-521)
+    certfile: str
+    cert_domains:
+      - str?
+    challenge_alias: str?
+    keyfile: str
+  seconds: int
+  token: str
+  registered: bool?
+  issued: bool?
+startup: services
