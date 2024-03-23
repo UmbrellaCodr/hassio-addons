@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.4
+
+- update to handle home assistant changes
+
 ## 0.0.3
 
 - fix args
